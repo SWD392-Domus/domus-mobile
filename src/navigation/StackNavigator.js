@@ -1,19 +1,30 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react'
 import HomeScreen from '../screens/HomeScreen';
-import DetailsScreen from '../screens/DetailsScreen';
 import ProductListScreen from '../screens/ProductListScreen';
 import CartScreen from '../screens/CartScreen';
 import OrderScreen from '../screens/OrderScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+import ProductDetailsScreen from '../screens/ProductDetailsScreen';
+import SearchScreen from '../screens/SearchScreen';
 const Stack = createStackNavigator();
 
 const MainStackNavigator = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{
+      headerShown: false,
+    }}>
       <Stack.Screen name="home-screen" component={HomeScreen}/>
-      <Stack.Screen name="details-screen" component={DetailsScreen}/>
+      <Stack.Screen name="Product Details" component={ProductDetailsScreen}/>
       <Stack.Screen name="product-screen" component={ProductListScreen}/>
+    </Stack.Navigator>
+  )
+}
+
+const SearchStackNavigator = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="search-screen" component={SearchScreen}/>
     </Stack.Navigator>
   )
 }
@@ -42,4 +53,4 @@ const CartStackNavigator = () => {
     )
   }
 
-export {MainStackNavigator, CartStackNavigator, OrderStackNavigator, ProfileStackNavigator}
+export {MainStackNavigator, CartStackNavigator, OrderStackNavigator, ProfileStackNavigator, SearchStackNavigator}

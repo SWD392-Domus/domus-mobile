@@ -4,6 +4,7 @@ import {
   MainStackNavigator,
   OrderStackNavigator,
   ProfileStackNavigator,
+  SearchStackNavigator,
 } from "./StackNavigator";
 import MaterialIcon from "react-native-vector-icons/MaterialIcons";
 const Tab = createBottomTabNavigator();
@@ -33,6 +34,12 @@ export const TabNavigator = () => {
         ),
       }}
       />
+      <Tab.Screen name="search" component={SearchStackNavigator} 
+        options={{
+          tabBarIcon: ({ size, color }) => (
+            <MaterialIcon name="search" size={size} color={color} />
+          ),
+        }}/>
       <Tab.Screen name="order" component={OrderStackNavigator}
         options={{
           tabBarIcon: ({ size, color }) => (
