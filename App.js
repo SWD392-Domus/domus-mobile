@@ -1,10 +1,13 @@
-import { NavigationContainer } from '@react-navigation/native';
-import TabNavigator from './src/navigation/TabNavigator';
+import { NavigationContainer } from "@react-navigation/native";
+import TabNavigator from "./src/navigation/TabNavigator";
+import { GluestackUIProvider } from "@gluestack-ui/themed";
+
 export default function App() {
   return (
-    <NavigationContainer>
-      <TabNavigator/>
-    </NavigationContainer>
+    <GluestackUIProvider>
+      <NavigationContainer>
+        <TabNavigator />
+      </NavigationContainer>
+    </GluestackUIProvider>
   );
 }
-

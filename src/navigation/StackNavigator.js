@@ -3,10 +3,11 @@ import React from 'react'
 import HomeScreen from '../screens/HomeScreen';
 import ProductListScreen from '../screens/ProductListScreen';
 import CartScreen from '../screens/CartScreen';
-import OrderScreen from '../screens/OrderScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import ProductDetailsScreen from '../screens/ProductDetailsScreen';
 import SearchScreen from '../screens/SearchScreen';
+import ArticleScreen from '../screens/ArticleScreen';
+import DetailsArticleScreen from '../screens/DetailsArticleScreen';
 const Stack = createStackNavigator();
 
 const MainStackNavigator = () => {
@@ -37,10 +38,13 @@ const CartStackNavigator = () => {
     )
   }
 
-  const OrderStackNavigator = () => {
+  const ArticleStackNavigator = () => {
     return(
-        <Stack.Navigator>
-        <Stack.Screen name="order-screen" component={OrderScreen}/>
+        <Stack.Navigator screenOptions={{
+          headerShown: false,
+        }}>
+        <Stack.Screen name="article-screen" component={ArticleScreen}/>
+        <Stack.Screen name="ArticleDetails" component={DetailsArticleScreen}/>
       </Stack.Navigator>
     )
   }
@@ -53,4 +57,4 @@ const CartStackNavigator = () => {
     )
   }
 
-export {MainStackNavigator, CartStackNavigator, OrderStackNavigator, ProfileStackNavigator, SearchStackNavigator}
+export {MainStackNavigator, CartStackNavigator, ArticleStackNavigator, ProfileStackNavigator, SearchStackNavigator}

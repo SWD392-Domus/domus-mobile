@@ -8,7 +8,7 @@ import Carousel from "../components/home/Carousel";
 import Heading from "../components/home/Heading";
 import ProductList from "../components/products/ProductList";
 import ProductCardView from "../components/products/ProductCardView";
-import axios from "axios";
+import axiosCall from "../utils/api/axios";
 
 const HomeScreen = ({ navigation }) => {
   const [products, setProducts] = useState([]);
@@ -16,14 +16,15 @@ const HomeScreen = ({ navigation }) => {
   const [pageSize, setPageSize] = useState(12);
   const [pageIndex, setPageIndex] = useState(1);
 
- const path = "http://23.102.226.118:443/api"
+//  const path = "https://domus.io.vn/api"
   useEffect(() => {
     navigation.setOptions({
       headerShown: false,
     });
     const fetchProducts = async () => {
       try {
-        const response = await axios.get(`${path}/Products?PageSize=${pageSize}&PageIndex=${pageIndex}`);
+        // const response = await axios.get(`${path}/Products?PageSize=${pageSize}&PageIndex=${pageIndex}`);
+        const response = await axiosCall(`/Products?PageSize=${pageSize}&PageIndex=${pageIndex}`);
         // if(response.data.length > 0){
         //   console.log(response.data.data.items)
         // }

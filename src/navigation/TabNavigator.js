@@ -1,8 +1,8 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
+  ArticleStackNavigator,
   CartStackNavigator,
   MainStackNavigator,
-  OrderStackNavigator,
   ProfileStackNavigator,
   SearchStackNavigator,
 } from "./StackNavigator";
@@ -40,7 +40,7 @@ export const TabNavigator = () => {
             <MaterialIcon name="search" size={size} color={color} />
           ),
         }}/>
-      <Tab.Screen name="order" component={OrderStackNavigator}
+      <Tab.Screen name="article" component={ArticleStackNavigator}
         options={{
           tabBarIcon: ({ size, color }) => (
             <MaterialIcon name="list-alt" size={size} color={color} />
