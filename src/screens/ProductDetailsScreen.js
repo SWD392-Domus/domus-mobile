@@ -13,16 +13,11 @@ const ProductDetailsScreen = ({ navigation }) => {
 
   const groupedAttributes = {};
 
-  // Iterate over each detail
   details.forEach(detail => {
-    // Iterate over attributes of each detail
     detail.attributes.forEach(attribute => {
-      // Check if the attribute name already exists in groupedAttributes
       if (groupedAttributes.hasOwnProperty(attribute.name)) {
-        // If it exists, push the attribute value to the existing array
         groupedAttributes[attribute.name].push(attribute.value);
       } else {
-        // If it doesn't exist, create a new array with the attribute value
         groupedAttributes[attribute.name] = [attribute.value];
       }
     });
@@ -44,9 +39,6 @@ const ProductDetailsScreen = ({ navigation }) => {
           <MaterialIcons name="arrow-back" size={30} />
         </TouchableOpacity>
       </View>
-      {/* <Image
-      className="aspect-square object-cover"
-      source={{uri: "https://www.ikea.com/images/a-living-room-with-white-corner-sofa-dark-wooden-sideboard-a-ca2f7a897972f992a881f8417617a3a9.jpg?f=xxxl"}}/> */}
       <SliderBox images={images} autoplay circleLoop
         dotColor={COLORS.primary}
         inactiveDotColor={COLORS.white}
@@ -62,11 +54,6 @@ const ProductDetailsScreen = ({ navigation }) => {
           <Text numberOfLines={1} className="font-extrabold text-xl w-[60%]">
             {productName}
           </Text>
-          {/* <View className="bg-yellow-400 rounded-xl">
-            <Text className="px-[10px] font-semibold text-lg">
-              ${details[0].displayPrice}
-            </Text>
-          </View> */}
         </View>
 
         <View className="px-5 pt-6 flex-row w-full gap-2 items-center">

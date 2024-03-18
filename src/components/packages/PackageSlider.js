@@ -4,8 +4,8 @@ import Carousel from 'react-native-snap-carousel';
 import PackageCard from './PackageCard'
 import { useNavigation } from '@react-navigation/native'
 
-const { width, height } = Dimensions.get('window')
-const PackageSlider = ({ data, label }) => {
+const { width } = Dimensions.get('window')
+const PackageSlider = ({ data }) => {
   const navigation = useNavigation();
   const handleClick = (item) => {
     navigation.navigate('PackageDetails', item)

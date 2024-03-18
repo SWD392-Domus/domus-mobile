@@ -1,8 +1,6 @@
 import { StyleSheet, Text, View, Pressable, Image, TextInput, ScrollView } from "react-native";
 import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import UserLogo from "../../assets/user.png";
 import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 import ArticleMiniHeader from "../components/articles/ArticleMiniHeader";
 import ArticleSlider from "../components/articles/ArticleSlider";
@@ -33,18 +31,6 @@ const ArticleScreen = () => {
   }, []);
   return (
     <SafeAreaView className="bg-white flex-1">
-      {/* <View className="flex-row px-5 mt-6 justify-between items-center">
-        <View className="bg-black w-10 h-10 flex-row justify-center items-center rounded-full">
-          <MaterialIcons name="menu" size={24} color={"#fff"} />
-        </View>
-        <Pressable
-          className="flex-row justify-center items-center 
-        border border-slate-400 rounded-full"
-        >
-          <Image source={UserLogo} className="h-12 w-12" />
-          <Text className="font-semibold py-2 pr-4 pl-2">Login</Text>
-        </Pressable>
-      </View> */}
       <View>
         <ArticleMiniHeader label="Articles" />
         <ArticleSlider label="Articles" data={articles} />

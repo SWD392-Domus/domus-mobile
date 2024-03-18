@@ -2,13 +2,13 @@ import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react'
 import HomeScreen from '../screens/HomeScreen';
 import ProductListScreen from '../screens/ProductListScreen';
-// import CartScreen from '../screens/CartScreen';
 import PackageScreen from '../screens/PackageScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import ProductDetailsScreen from '../screens/ProductDetailsScreen';
 import SearchScreen from '../screens/SearchScreen';
 import ArticleScreen from '../screens/ArticleScreen';
 import DetailsArticleScreen from '../screens/DetailsArticleScreen';
+import DetailsPackageScreen from '../screens/DetailsPackageScreen';
 const Stack = createStackNavigator();
 
 const MainStackNavigator = () => {
@@ -37,6 +37,7 @@ const PackageStackNavigator = () => {
       headerShown: false,
     }}>
       <Stack.Screen name="package-screen" component={PackageScreen} />
+      <Stack.Screen name="PackageDetails" component={DetailsPackageScreen} />
     </Stack.Navigator>
   )
 }

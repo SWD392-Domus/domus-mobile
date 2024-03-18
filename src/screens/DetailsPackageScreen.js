@@ -1,26 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import {
-  ActivityIndicator,
   Dimensions,
   ScrollView,
   Text,
-  Touchable,
   TouchableOpacity,
   View,
+  FlatList
 } from "react-native";
 import MaterialIcon from "react-native-vector-icons/MaterialIcons";
-import { WebView } from "react-native-webview";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import RenderHtml from 'react-native-render-html';
-import { SafeAreaView } from "react-native-safe-area-context";
-
+import ProductList from "../components/packages/products/ProductList";
 
 const { width, height } = Dimensions.get("window");
 const DetailsArticleScreen = () => {
-    const navigation = useNavigation();
-    const { params: item } = useRoute();
-    console.log("item", item);
-  const [visible, setVisible] = useState(false);
+  const navigation = useNavigation();
+  const { params: item } = useRoute();
+  console.log("item", item);
   return (
     <>
       <View
@@ -28,7 +24,6 @@ const DetailsArticleScreen = () => {
     pb-4 bg-white
     "
       >
-        
         <View className="bg-gray-100 p-2 rounded-full items-center justify-center">
           <TouchableOpacity onPress={() => navigation.goBack()}>
             <MaterialIcon
@@ -40,29 +35,25 @@ const DetailsArticleScreen = () => {
           </TouchableOpacity>
         </View>
       </View>
-      {/* <WebView
-        source={{ uri: "https://www.google.com" }}
-        onLoadStart={() => setVisible(true)}
-        onLoadEnd={() => setVisible(false)}
-        style={{ flex: 1 }}/> */}
-    <ScrollView className="p-4">
-    <Text className="text-2xl font-bold">{item.title}</Text>
+      <ScrollView className="p-4">
+        <Text className="text-2xl font-bold mb-2">{item.name}</Text>
+        <Text className="text-xl font-semibold">Products in Package</Text>
+        <ProductList products={item.productDetails} />
         <RenderHtml
-        contentWidth={width}
-        source={{ html: item.content }} />
+          contentWidth={width}
+          source={{ html: item.description }} />
+        <Text className="text-xl font-semibold">Services in Package</Text>
+        <View className="mt-2 mb-10">
+          <FlatList
+            data={item.services}
+            horizontal
+            contentContainerStyle={{ padding: 10, columnGap: 20 }}
+            renderItem={({ item }) =>
+              <Text className="text-sm font-semibold">{item.name}</Text>
+            }
+          />
+        </View>
       </ScrollView>
-      
-      {/* {visible && (
-        <ActivityIndicator
-          size={"large"}
-          color={"yellow"}
-          style={{
-            position: "absolute",
-            top: height / 2,
-            left: width / 2,
-          }}
-        />
-      )} */}
     </>
   );
 };

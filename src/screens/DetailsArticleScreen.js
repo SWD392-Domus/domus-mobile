@@ -17,9 +17,9 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 const { width, height } = Dimensions.get("window");
 const DetailsArticleScreen = () => {
-    const navigation = useNavigation();
-    const { params: item } = useRoute();
-    console.log("item", item);
+  const navigation = useNavigation();
+  const { params: item } = useRoute();
+  console.log("item", item);
   const [visible, setVisible] = useState(false);
   return (
     <>
@@ -28,7 +28,7 @@ const DetailsArticleScreen = () => {
     pb-4 bg-white
     "
       >
-        
+
         <View className="bg-gray-100 p-2 rounded-full items-center justify-center">
           <TouchableOpacity onPress={() => navigation.goBack()}>
             <MaterialIcon
@@ -40,29 +40,12 @@ const DetailsArticleScreen = () => {
           </TouchableOpacity>
         </View>
       </View>
-      {/* <WebView
-        source={{ uri: "https://www.google.com" }}
-        onLoadStart={() => setVisible(true)}
-        onLoadEnd={() => setVisible(false)}
-        style={{ flex: 1 }}/> */}
-    <ScrollView className="p-4">
-    <Text className="text-2xl font-bold">{item.title}</Text>
+      <ScrollView className="p-4">
+        <Text className="text-2xl font-bold">{item.title}</Text>
         <RenderHtml
-        contentWidth={width}
-        source={{ html: item.content }} />
+          contentWidth={width}
+          source={{ html: item.content }} />
       </ScrollView>
-      
-      {/* {visible && (
-        <ActivityIndicator
-          size={"large"}
-          color={"yellow"}
-          style={{
-            position: "absolute",
-            top: height / 2,
-            left: width / 2,
-          }}
-        />
-      )} */}
     </>
   );
 };
