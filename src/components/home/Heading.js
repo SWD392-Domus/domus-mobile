@@ -7,9 +7,9 @@ const Heading = () => {
   return (
     <View className="mt-4 mx-4 ">
       <View className="flex-row justify-between">
-        <Text className="font-semibold text-xl">New Arrivals</Text>
+        <Text className="font-semibold text-xl">New Products</Text>
         <TouchableOpacity>
-            <MaterialIcon name="grid-view" size={24} color={COLORS.primary} />
+          <MaterialIcon name="grid-view" size={24} color={COLORS.primary} />
         </TouchableOpacity>
       </View>
     </View>

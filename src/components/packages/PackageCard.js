@@ -4,15 +4,15 @@ import { LinearGradient } from "expo-linear-gradient";
 
 const { width, height } = Dimensions.get('window')
 
-const ArticleCard = ({ item, handleClick }) => {
-  // console.log("in card",item)
+const PackageCard = ({ item, handleClick }) => {
+  // console.log("in card", item)
   return (
     <TouchableWithoutFeedback onPress={() => handleClick(item)}>
       <View className="relative">
         <Image
           source={{
             uri:
-              item.articleImages[0] ||
+              item.packageImages[0].imageUrl ||
               "https://media.architecturaldigest.com/photos/62bcb8ce6cf27b95db3b09a9/16:9/w_2560%2Cc_limit/6-29%2520amazon%2520prime%2520upgrades%2520v1.jpg"
           }}
           style={{
@@ -39,9 +39,9 @@ const ArticleCard = ({ item, handleClick }) => {
           <View className=" space-y-1">
             <View className=" max-w-[98%]">
               <Text className="text-white text-base font-semibold capitalize">
-                {item.title.length > 60
-                  ? item.title.slice(0, 58) + "..."
-                  : item.title.split("-")[0] || "N/A"}
+                {item.name.length > 60
+                  ? item.name.slice(0, 58) + "..."
+                  : item.name.split("-")[0] || "N/A"}
               </Text>
             </View>
 
@@ -53,4 +53,4 @@ const ArticleCard = ({ item, handleClick }) => {
   )
 }
 
-export default ArticleCard
+export default PackageCard

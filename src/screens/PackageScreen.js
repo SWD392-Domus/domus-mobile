@@ -2,28 +2,28 @@ import { StyleSheet, Text, View, Pressable, Image, TextInput, ScrollView } from 
 import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { heightPercentageToDP as hp } from "react-native-responsive-screen";
-import ArticleMiniHeader from "../components/articles/ArticleMiniHeader";
-import ArticleSlider from "../components/articles/ArticleSlider";
+import PackageMiniHeader from "../components/packages/PackageMiniHeader";
+import PackageSlider from "../components/packages/PackageSlider";
 import axiosCall from "../utils/api/axios";
-import ArticleSection from "../components/articles/ArticleSection";
+import PackageSection from "../components/packages/PackageSection";
 
-const ArticleScreen = () => {
-  const [articles, setArticles] = useState([]);
+const PackageScreen = () => {
+  const [packages, setPackages] = useState([]);
   const searchField = "title";
   const Descending = false;
   const PageSize = 100;
   const PageIndex = 1;
   const fetchData = async () => {
     try {
-      const res = await axiosCall(`/Articles/search?SearchField=${searchField}&SearchValue=&SortField=&Descending=${Descending}&PageSize=${PageSize}&PageIndex=${PageIndex}`);
+      const res = await axiosCall(`/Packages/search?SearchField=${searchField}&SearchValue=&SortField=&Descending=${Descending}&PageSize=${PageSize}&PageIndex=${PageIndex}`);
       const response = res.data
       // console.log("response", response)
       if (response.isSuccess) {
-        setArticles(response.data.items)
+        setPackages(response.data.items)
       }
 
     } catch (error) {
-      console.error("Error fetching articles:", error);
+      console.error("Error fetching packages:", error);
     }
   }
   useEffect(() => {
@@ -32,23 +32,23 @@ const ArticleScreen = () => {
   return (
     <SafeAreaView className="bg-white flex-1">
       <View>
-        <ArticleMiniHeader label="Articles" />
-        <ArticleSlider label="Articles" data={articles} />
+        <PackageMiniHeader label="Packages" />
+        <PackageSlider label="Packages" data={packages} />
       </View>
       <View>
-        <ArticleMiniHeader label="Recommend articles" />
+        <PackageMiniHeader label="Recommend packages" />
         <ScrollView
           contentContainerStyle={{
             paddingBottom: hp(80),
           }}
         >
-          <ArticleSection label="Recommended" data={articles} />
+          <PackageSection label="Recommended" data={packages} />
         </ScrollView>
       </View>
     </SafeAreaView>
   )
 }
 
-export default ArticleScreen
+export default PackageScreen
 
 const styles = StyleSheet.create({})
