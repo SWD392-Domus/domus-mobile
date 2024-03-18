@@ -11,12 +11,17 @@ import ArticleSection from "../components/articles/ArticleSection";
 
 const ArticleScreen = () => {
   const [articles, setArticles] = useState([]);
+  const searchField = "title";
+  const Descending = false;
+  const PageSize = 100;
+  const PageIndex = 1;
   const fetchData = async () => {
     try {
-      const res = await axiosCall(`/Articles/all`);
+      const res = await axiosCall(`/Articles/search?SearchField=${searchField}&SearchValue=&SortField=&Descending=${Descending}&PageSize=${PageSize}&PageIndex=${PageIndex}`);
       const response= res.data
+      console.log("response",response)
       if(response.isSuccess){
-        setArticles(response.data)
+        setArticles(response.data.items)
       }
       
     } catch (error) {

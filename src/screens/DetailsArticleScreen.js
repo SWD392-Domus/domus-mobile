@@ -28,6 +28,7 @@ const DetailsArticleScreen = () => {
     pb-4 bg-white
     "
       >
+        
         <View className="bg-gray-100 p-2 rounded-full items-center justify-center">
           <TouchableOpacity onPress={() => navigation.goBack()}>
             <MaterialIcon
@@ -45,6 +46,7 @@ const DetailsArticleScreen = () => {
         onLoadEnd={() => setVisible(false)}
         style={{ flex: 1 }}/> */}
     <ScrollView className="p-4">
+    <Text className="text-2xl font-bold">{item.title}</Text>
         <RenderHtml
         contentWidth={width}
         source={{ html: item.content }} />
