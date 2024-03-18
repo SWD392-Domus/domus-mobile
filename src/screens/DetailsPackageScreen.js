@@ -16,7 +16,7 @@ const { width, height } = Dimensions.get("window");
 const DetailsArticleScreen = () => {
   const navigation = useNavigation();
   const { params: item } = useRoute();
-  console.log("item", item);
+  // console.log("item", item);
   return (
     <>
       <View

@@ -17,7 +17,7 @@ const ArticleScreen = () => {
     try {
       const res = await axiosCall(`/Articles/search?SearchField=${searchField}&SearchValue=&SortField=&Descending=${Descending}&PageSize=${PageSize}&PageIndex=${PageIndex}`);
       const response = res.data
-      console.log("response", response)
+      // console.log("response", response)
       if (response.isSuccess) {
         setArticles(response.data.items)
       }

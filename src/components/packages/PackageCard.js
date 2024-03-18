@@ -5,7 +5,7 @@ import { LinearGradient } from "expo-linear-gradient";
 const { width, height } = Dimensions.get('window')
 
 const PackageCard = ({ item, handleClick }) => {
-  console.log("in card", item)
+  // console.log("in card", item)
   return (
     <TouchableWithoutFeedback onPress={() => handleClick(item)}>
       <View className="relative">

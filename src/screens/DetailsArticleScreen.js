@@ -9,18 +9,16 @@ import {
   View,
 } from "react-native";
 import MaterialIcon from "react-native-vector-icons/MaterialIcons";
-import { WebView } from "react-native-webview";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import RenderHtml from 'react-native-render-html';
-import { SafeAreaView } from "react-native-safe-area-context";
 
 
 const { width, height } = Dimensions.get("window");
 const DetailsArticleScreen = () => {
   const navigation = useNavigation();
   const { params: item } = useRoute();
-  console.log("item", item);
-  const [visible, setVisible] = useState(false);
+  // console.log("item", item);
+  // const [visible, setVisible] = useState(false);
   return (
     <>
       <View

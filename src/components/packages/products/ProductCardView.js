@@ -1,13 +1,10 @@
 import { View, Text, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
-import { useNavigation } from '@react-navigation/native'
 const ProductCardView = prop => {
     const { productName, quantity, images } = prop.product;
     // console.log(product)
-    const navigation = useNavigation();
     return (
         <TouchableOpacity onPress={() => {
-            navigation.navigate('Product Details', prop)
         }}>
             <View className="w-[182px] h-[240px] me-[22px] rounded-xl
         bg-slate-100
@@ -25,7 +22,7 @@ const ProductCardView = prop => {
                         {productName}
                     </Text>
                     <Text numberOfLines={1} className="text-slate-500 text-sm font-semibold">
-                        {quantity}
+                        Quantity: {quantity}
                     </Text>
                     {/* <Text className="text-lg font-semibold">
                         ${details[0].displayPrice}

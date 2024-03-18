@@ -17,7 +17,7 @@ const PackageScreen = () => {
     try {
       const res = await axiosCall(`/Packages/search?SearchField=${searchField}&SearchValue=&SortField=&Descending=${Descending}&PageSize=${PageSize}&PageIndex=${PageIndex}`);
       const response = res.data
-      console.log("response", response)
+      // console.log("response", response)
       if (response.isSuccess) {
         setPackages(response.data.items)
       }

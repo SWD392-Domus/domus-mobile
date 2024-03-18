@@ -28,14 +28,14 @@ export const TabNavigator = () => {
       <Tab.Screen name="package" component={PackageStackNavigator}
         options={{
           tabBarIcon: ({ size, color }) => (
-            <MaterialIcon name="developer-board" size={size} color={color} />
+            <MaterialIcon name="dns" size={size} color={color} />
           ),
         }}
       />
       <Tab.Screen name="article" component={ArticleStackNavigator}
         options={{
           tabBarIcon: ({ size, color }) => (
-            <MaterialIcon name="list-alt" size={size} color={color} />
+            <MaterialIcon name="book" size={size} color={color} />
           ),
         }}
       />
