@@ -16,7 +16,7 @@ const HomeScreen = ({ navigation }) => {
   const [pageSize, setPageSize] = useState(12);
   const [pageIndex, setPageIndex] = useState(1);
 
-//  const path = "https://domus.io.vn/api"
+  //  const path = "https://domus.io.vn/api"
   useEffect(() => {
     navigation.setOptions({
       headerShown: false,
@@ -44,19 +44,6 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <SafeAreaView className="bg-white flex-1">
-      <View className="flex-row px-5 mt-6 justify-between items-center">
-        <View className="bg-black w-10 h-10 flex-row justify-center items-center rounded-full">
-          <MaterialIcons name="menu" size={24} color={"#fff"} />
-        </View>
-        <Pressable
-          className="flex-row justify-center items-center 
-        border border-slate-400 rounded-full"
-        >
-          <Image source={UserLogo} className="h-12 w-12" />
-          <Text className="font-semibold py-2 pr-4 pl-2">Login</Text>
-        </Pressable>
-      </View>
-
       {/* <View className="mt-6 px-5">
         <Text className="font-bold text-2xl">Welcome, user</Text>
         <Text className="font-bold text-xl text-gray-500">
@@ -79,10 +66,10 @@ const HomeScreen = ({ navigation }) => {
       </View> */}
 
       <ScrollView>
-        <Welcome/>
-        <Carousel/>
-        <Heading/>
-        <ProductList products={products}/>
+        <Welcome />
+        <Carousel />
+        <Heading />
+        <ProductList products={products} />
       </ScrollView>
     </SafeAreaView>
   );
